@@ -64,8 +64,11 @@ function parse_json(json) {
   loadSocial(json)
 }
 
+// const data_url = "../data.json" // For local testing
+const data_url = "https://ezee1015.github.io/cv/data.json"
+
 // Resource: https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch
-fetch("../data.json")
+fetch(data_url)
   .then(function (response) {
     if (response.ok) {
       response.json().then(parse_json)

@@ -1,0 +1,86 @@
+/* Colorscheme: tokionight-moon */
+/* <https://github.com/folke/tokyonight.nvim/blob/14fd5ff7f84027064724ec3157fe903199e77ded/lua/tokyonight/colors/moon.lua> */
+:root {
+  --bg: #222436;
+  --bg-dark: #1e2030;
+  /* --bg-dark1: #191B29; */
+  /* --bg-highlight: #2f334d; */
+  /* --blue: #82aaff; */
+  /* --blue0: #3e68d7; */
+  /* --blue1: #65bcff; */
+  /* --blue2: #0db9d7; */
+  /* --blue5: #89ddff; */
+  /* --blue6: #b4f9f8; */
+  /* --blue7: #394b70; */
+  /* --comment: #636da6; */
+  /* --cyan: #86e1fc; */
+  /* --dark3: #545c7e; */
+  /* --dark5: #737aa2; */
+  --fg: #c8d3f5;
+  --fg-dark: #828bb8;
+  /* --fg-gutter: #3b4261; */
+  /* --green: #c3e88d; */
+  /* --green1: #4fd6be; */
+  /* --green2: #41a6b5; */
+  /* --magenta: #c099ff; */
+  /* --magenta2: #ff007c; */
+  /* --orange: #ff966c; */
+  /* --purple: #fca7ea; */
+  /* --red: #ff757f; */
+  /* --red1: #c53b53; */
+  /* --teal: #4fd6be; */
+  /* --terminal-black: #444a73; */
+  /* --yellow: #ffc777; */
+  /* --git-add: #b8db87; */
+  /* --git-change: #7ca1f2; */
+  /* --git-delete: #e26a75; */
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  margin: 0;
+  display: flex;
+}
+
+hr {
+  color: var(--fg-dark)
+}
+
+/* SIDE PANEL */
+
+#side_panel {
+  background: var(--bg-dark);
+  position: sticky;
+  top: 0;
+  margin-left: 0px;
+  width: 30%;
+  height: 100vh;
+}
+
+#side_panel_content {
+  max-width: 400px;
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+#logo {
+  border-radius: 50%;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#side_panel_content h1 {
+  font-size: 24px;
+  text-align: center;
+}
+
+/* CONTENT */
+
+#content {
+  width: 59%;
+  padding-left: 50px;
+}

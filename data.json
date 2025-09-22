@@ -1,0 +1,65 @@
+{
+  "education": [
+    {
+      "name": "UTN: Universidad Tecnológica Nacional",
+      "degree": "Information Systems Engineer",
+      "start": "April 2024",
+      "end": "In progress"
+    },
+    {
+      "name": "La Salette Institute",
+      "degree": "Computer technician",
+      "start": "March 2018",
+      "end": "December 2023"
+    }
+  ],
+
+  "experience": [
+    {
+      "name": "Streambe",
+      "start": "April 2023",
+      "end": "August 2023"
+    }
+  ],
+
+  "courses": [
+    {
+      "name": "Data science",
+      "issuer": "Aprendé Programando | UTN Avellaneda",
+      "date": "July 2023"
+    },
+    {
+      "name": "Web development 3",
+      "issuer": "Aprendé Programando",
+      "date": "July 2023"
+    },
+    {
+      "name": "Web development 2",
+      "issuer": "Aprendé Programando",
+      "date": "February 2023"
+    },
+    {
+      "name": "Web development 1",
+      "issuer": "Aprendé Programando",
+      "date": "December 2022"
+    },
+    {
+      "name": "Robotic and 3D Printing",
+      "issuer": "Aprendé Programando",
+      "date": "July 2022"
+    }
+  ],
+
+  "personal": {
+    "name": "Leonardo Da Silva",
+    "image": "https://avatars.githubusercontent.com/u/82286822",
+    "social": [
+      {
+        "name": "LinkedIn",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg",
+        "text": "leoeds",
+        "link": "https://www.linkedin.com/in/leoeds/"
+      }
+    ]
+  }
+}

@@ -46,13 +46,13 @@ function loadSocial(json) {
 
 function loadProfilePicture(json) {
   if (json.personal.image == undefined) return
-  document.head.innerHTML+=`<link rel=\"icon\" href=\"${json.personal.image}\" type=\"image/x-icon\">`
   document.getElementById("logo").src = json.personal.image
 }
 
 function loadName(json) {
   if (json.personal.name == undefined) return
   document.getElementById("name").innerText = json.personal.name
+  document.title = json.personal.name
 }
 
 function parse_json(json) {

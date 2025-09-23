@@ -38,7 +38,7 @@ function loadSocial(json) {
   for (const c of json.personal.social) {
     document.getElementById("social").innerHTML += `
       <li>
-        <a href="${c.link}"><img src="${c.logo}"> <b>${c.name}</b>: <b>${c.text}</b></a>
+        <a href="${c.link}"><img class="social_logo" src="${c.logo}"> <b>${c.name}</b>: <b>${c.text}</b></a>
       </li>
     `
   }

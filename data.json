@@ -59,6 +59,12 @@
         "logo": "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg",
         "text": "leoeds",
         "link": "https://www.linkedin.com/in/leoeds/"
+      },
+      {
+        "name": "GitHub",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/1200px-GitHub_Invertocat_Logo.svg.png",
+        "text": "Ezee1015",
+        "link": "https://www.github.com/Ezee1015/"
       }
     ]
   }

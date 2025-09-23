@@ -24,13 +24,13 @@
   /* --green2: #41a6b5; */
   /* --magenta: #c099ff; */
   /* --magenta2: #ff007c; */
-  /* --orange: #ff966c; */
+  --orange: #ff966c;
   /* --purple: #fca7ea; */
-  /* --red: #ff757f; */
-  /* --red1: #c53b53; */
+  --red: #ff757f;
+  --red1: #c53b53;
   /* --teal: #4fd6be; */
   /* --terminal-black: #444a73; */
-  /* --yellow: #ffc777; */
+  --yellow: #ffc777;
   /* --git-add: #b8db87; */
   /* --git-change: #7ca1f2; */
   /* --git-delete: #e26a75; */
@@ -44,7 +44,9 @@ body {
 }
 
 hr {
-  color: var(--fg-dark)
+  background: var(--fg-dark);
+  border: none;
+  height: 1px;
 }
 
 /* SIDE PANEL */
@@ -86,6 +88,72 @@ hr {
 /* CONTENT */
 
 #content {
-  width: 59%;
+  width: 70%;
   padding-left: 50px;
+  padding-right: 50px;
+}
+
+/* MESSAGE */
+.message {
+  display: flex;
+  border-radius: 25px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.message_warning {
+  background: var(--yellow);
+  border: 8px solid var(--orange);
+  color: var(--bg);
+}
+
+.message_error {
+  background: var(--red);
+  border: 8px solid var(--red1);
+  color: var(--bg);
+}
+
+.message hr {
+  height: 3px;
+}
+
+.message_error hr {
+  background: var(--red1);
+}
+
+.message_warning hr {
+  background: var(--orange);
+}
+
+.message_icon {
+  width: 100px;
+  height: 100px;
+  padding: 25px;
+}
+
+.message_content {
+  width:100%;
+  padding-right: 25px;
+  position: relative; /* For the button position */
+}
+
+.message_close {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+
+  background: transparent;
+  color: var(--bg-dark);
+  border-radius: 5px;
+  border: 2px solid var(--bg-dark); /* Green */
+}
+
+.message_close:hover {
+  color: var(--fg-dark);
+  border-color: var(--fg-dark);
+}
+
+.message_title {
+  margin-top: 30px;
+  margin-bottom: 10px
 }

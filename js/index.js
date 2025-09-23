@@ -1,3 +1,46 @@
+////////////////////////////////////////////// Messages
+const iconUnderConstruction = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/UnderCon_icon.svg/1200px-UnderCon_icon.svg.png"
+const iconAlert = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Warning.svg/1200px-Warning.svg.png"
+const iconError = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/OOjs_UI_icon_error-destructive.svg/768px-OOjs_UI_icon_error-destructive.svg.png"
+
+// Available types: "warning", "error"
+function addMessage(type, iconPath, titleStr, messageStr) {
+  const close = document.createElement("button")
+  close.classList.add("message_close")
+  close.innerText = "X"
+
+  const title = document.createElement("h2")
+  title.classList.add("message_title")
+  title.innerText = titleStr
+
+  const message = document.createElement("p")
+  message.innerText = messageStr
+
+  const message_container = document.createElement("div")
+  message_container.classList.add("message_content")
+  message_container.appendChild(close)
+  message_container.appendChild(title)
+  message_container.appendChild(document.createElement("hr"))
+  message_container.appendChild(message)
+
+  const image = document.createElement("img")
+  image.classList.add("message_icon")
+  image.src = iconPath
+
+  const container = document.createElement("div")
+  container.classList.add("message", `message_${type}`)
+  container.appendChild(image)
+  container.appendChild(message_container)
+
+  const firstElement = document.getElementById("content").firstChild
+  document.getElementById("content").insertBefore(container, firstElement)
+
+  close.onclick = () => {
+    container.style.display = "none"
+  }
+}
+
+////////////////////////////////////////////// LOAD data.json
 function loadEducation(json) {
   for (const ed of json.education) {
     document.getElementById("education").innerHTML += `
@@ -73,10 +116,12 @@ fetch(data_url)
     if (response.ok) {
       response.json().then(parse_json)
     } else {
-      console.log(`Failed while getting the info`) // TODO Print it as a popup error in the html
+      addMessage("error", iconError, "The response is not ok", "Failed while getting the info")
       console.log(response)
     }
   })
   .catch(function (error) {
-    console.log("An error occurred with the Fetch petition:" + error.message); // TODO Print it as a popup error in the html
+    addMessage("error", iconError, "Fetch error", "An error occurred with the Fetch petition: " + error.message)
   });
+
+addMessage("warning", iconUnderConstruction, "Under Construction", "This web page is under construction...")

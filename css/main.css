@@ -73,9 +73,14 @@ hr {
   margin-left: 20%;
   margin-top: 50px;
   margin-bottom: 50px;
+  border: var(--bg) solid 10px;
 }
 
-#side_panel_content h1 {
+h1 {
+  text-decoration: underline;
+}
+
+#name {
   font-size: 24px;
   text-align: center;
 }

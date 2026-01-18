@@ -4,13 +4,15 @@
       "name": "UTN: Universidad Tecnológica Nacional",
       "degree": "Information Systems Engineer",
       "start": "April 2024",
-      "end": "In progress"
+      "end": "In progress",
+      "logo": "https://diagonalalaro.com.ar/wp-content/uploads/2018/03/UTN.png"
     },
     {
       "name": "La Salette Institute",
       "degree": "Computer technician",
       "start": "March 2018",
-      "end": "December 2023"
+      "end": "December 2023",
+      "logo": "https://lh4.googleusercontent.com/proxy/2ZzEkekfswuapTjRa5S3XjiHJ3kMMeymNilLNSGJfu4C32PO6H1ZqfTW5gp24HjcvWEZR95RFsWcTkg9Q5JUFb0TVAzlLFpPk9tOTalTQMC6z0JFRV8PpuF_FFZWPPTRbIVpL9nySaTtvqVnQHzHp37y4ChqBsRQKn7O7ddJktvdTZg8SCcL"
     }
   ],
 
@@ -18,7 +20,8 @@
     {
       "name": "Streambe",
       "start": "April 2023",
-      "end": "August 2023"
+      "end": "August 2023",
+      "logo": "https://streambe.com/wp-content/uploads/2025/07/cropped-favicom-streambe-argentina-1.png"
     }
   ],
 

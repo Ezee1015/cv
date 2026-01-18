@@ -77,7 +77,7 @@ function loadEducation(json) {
 
     createKnowledgeItem(
       "education",
-      logoDefaultEducation,
+      (ed.logo) ? ed.logo : logoDefaultEducation,
       body
     )
   }
@@ -98,7 +98,7 @@ function loadExperience(json) {
 
     createKnowledgeItem(
       "experience",
-      logoDefaultExperience,
+      (ex.logo) ? ex.logo : logoDefaultExperience,
       body
     )
   }
@@ -118,7 +118,7 @@ function loadCourses(json) {
 
     createKnowledgeItem(
       "courses",
-      logoDefaultCourses,
+      (c.logo) ? c.logo : logoDefaultCourses,
       body
     )
   }

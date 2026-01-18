@@ -1,7 +1,11 @@
 ////////////////////////////////////////////// Messages
-const iconUnderConstruction = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/UnderCon_icon.svg/1200px-UnderCon_icon.svg.png"
-const iconAlert = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Warning.svg/1200px-Warning.svg.png"
-const iconError = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/OOjs_UI_icon_error-destructive.svg/768px-OOjs_UI_icon_error-destructive.svg.png"
+const iconUnderConstruction = "img/under_construction.png"
+const iconAlert = "img/warning.png"
+const iconError = "img/error.png"
+
+const logoDefaultEducation = "img/education.png"
+const logoDefaultExperience = "img/experience.png"
+const logoDefaultCourses = "img/education.png"
 
 // Available types: "warning", "error"
 function addMessage(type, iconPath, titleStr, messageStr) {
@@ -17,18 +21,18 @@ function addMessage(type, iconPath, titleStr, messageStr) {
   message.innerText = messageStr
 
   const message_container = document.createElement("div")
-  message_container.classList.add("message_content")
+  message_container.classList.add("box_content", "message_content")
   message_container.appendChild(close)
   message_container.appendChild(title)
   message_container.appendChild(document.createElement("hr"))
   message_container.appendChild(message)
 
   const image = document.createElement("img")
-  image.classList.add("message_icon")
+  image.classList.add("box_icon")
   image.src = iconPath
 
   const container = document.createElement("div")
-  container.classList.add("message", `message_${type}`)
+  container.classList.add("box", `message_${type}`)
   container.appendChild(image)
   container.appendChild(message_container)
 
@@ -40,50 +44,101 @@ function addMessage(type, iconPath, titleStr, messageStr) {
   }
 }
 
+function createKnowledgeItem(containerID, icon, body) {
+  const text = document.createElement("div")
+  text.classList.add("knowledge_content")
+  text.appendChild(body)
+
+  const image = document.createElement("img")
+  image.classList.add("box_icon")
+  image.src = icon
+
+  const container = document.createElement("div")
+  container.classList.add("box")
+  container.appendChild(image)
+  container.appendChild(text)
+
+  document.getElementById(containerID).appendChild(container)
+}
+
 ////////////////////////////////////////////// LOAD data.json
 function loadEducation(json) {
   for (const ed of json.education) {
-    document.getElementById("education").innerHTML += `
-      <li>
-        <p><b>${ed.degree} | ${ed.name}</b></p>
-        <p>${ed.start} - ${ed.end}</p>
-        <br>
-      </li>
-    `
+    const title = document.createElement("p")
+    title.style.fontWeight = "bold";
+    title.innerHTML = `${ed.degree} | ${ed.name}`
+
+    const time = document.createElement("p")
+    time.innerText = `${ed.start} - ${ed.end}`
+
+    const body = document.createElement("div")
+    body.appendChild(title)
+    body.appendChild(time)
+
+    createKnowledgeItem(
+      "education",
+      logoDefaultEducation,
+      body
+    )
   }
 }
 
 function loadExperience(json) {
   for (const ex of json.experience) {
-    document.getElementById("experience").innerHTML += `
-      <li>
-        <p><b>${ex.name}</b></p>
-        <p>${ex.start} - ${ex.end}</p>
-        <br>
-      </li>
-    `
+    const title = document.createElement("p")
+    title.style.fontWeight = "bold";
+    title.innerHTML = ex.name
+
+    const time = document.createElement("p")
+    time.innerText = `${ex.start} - ${ex.end}`
+
+    const body = document.createElement("div")
+    body.appendChild(title)
+    body.appendChild(time)
+
+    createKnowledgeItem(
+      "experience",
+      logoDefaultExperience,
+      body
+    )
   }
 }
 
 function loadCourses(json) {
   for (const c of json.courses) {
-    document.getElementById("courses").innerHTML += `
-      <li>
-        <p><b>${c.name}</b> from <b>${c.issuer}</b></p>
-        <p>${c.date}</p>
-        <br>
-      </li>
-    `
+    const title = document.createElement("p")
+    title.innerHTML = `<b>${c.name}</b> from <b>${c.issuer}</b>`
+
+    const time = document.createElement("p")
+    time.innerText = c.date
+
+    const body = document.createElement("div")
+    body.appendChild(title)
+    body.appendChild(time)
+
+    createKnowledgeItem(
+      "courses",
+      logoDefaultCourses,
+      body
+    )
   }
 }
 
 function loadSocial(json) {
   for (const c of json.personal.social) {
-    document.getElementById("social").innerHTML += `
-      <li>
-        <a href="${c.link}"><img class="social_logo" src="${c.logo}"> <b>${c.name}</b>: <b>${c.text}</b></a>
-      </li>
-    `
+    const image = document.createElement("img")
+    image.classList.add("social_logo")
+    image.src = c.logo
+
+    const link = document.createElement("a")
+    link.href = c.link
+    link.appendChild(image)
+    link.innerHTML += ` <b>${c.name}</b>: <b>${c.text}</b>`
+
+    const item = document.createElement("li")
+    item.appendChild(link)
+
+    document.getElementById("social").appendChild(item)
   }
 }
 

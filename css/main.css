@@ -93,14 +93,26 @@ hr {
   padding-right: 50px;
 }
 
-/* MESSAGE */
-.message {
+.box {
   display: flex;
   border-radius: 25px;
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
+.box_icon {
+  width: 100px;
+  height: 100px;
+  margin: 25px;
+}
+
+.box_content {
+  margin: 25px;
+  margin-left: 0px;
+  width: 100%;
+}
+
+/* MESSAGE */
 .message_warning {
   background: var(--yellow);
   border: 8px solid var(--orange);
@@ -113,8 +125,12 @@ hr {
   color: var(--bg);
 }
 
-.message hr {
+.message_content hr {
   height: 3px;
+}
+
+.message_content h2 {
+  margin-top: 0px;
 }
 
 .message_error hr {
@@ -125,22 +141,14 @@ hr {
   background: var(--orange);
 }
 
-.message_icon {
-  width: 100px;
-  height: 100px;
-  padding: 25px;
-}
-
 .message_content {
-  width:100%;
-  padding-right: 25px;
   position: relative; /* For the button position */
 }
 
 .message_close {
   position: absolute;
-  right: 25px;
-  top: 25px;
+  right: 0px;
+  top: 0px;
 
   background: transparent;
   color: var(--bg-dark);
@@ -156,4 +164,10 @@ hr {
 .message_title {
   margin-top: 30px;
   margin-bottom: 10px
+}
+
+/* Knowledge */
+
+.knowledge_content {
+  padding-top: 25px;
 }

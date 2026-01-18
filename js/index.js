@@ -127,15 +127,19 @@ function loadCourses(json) {
 function loadSocial(json) {
   for (const c of json.personal.social) {
     const image = document.createElement("img")
-    image.classList.add("social_logo")
+    image.alt = c.name
     image.src = c.logo
+
+    const username = document.createElement("span")
+    username.innerHTML = ` @<b>${c.username}</b>`
 
     const link = document.createElement("a")
     link.href = c.link
     link.appendChild(image)
-    link.innerHTML += ` <b>${c.name}</b>: <b>${c.text}</b>`
+    link.appendChild(username)
 
-    const item = document.createElement("li")
+    const item = document.createElement("div")
+    item.classList.add("social_item")
     item.appendChild(link)
 
     document.getElementById("social").appendChild(item)

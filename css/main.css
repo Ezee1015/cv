@@ -80,9 +80,25 @@ hr {
   text-align: center;
 }
 
-.social_logo {
+.social_item {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.social_item a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  text-decoration: none;
+  color: unset;
+}
+
+.social_item img {
   width: 35px;
-  height: 35px
+  height: 35px;
+
+  display: block;
 }
 
 /* CONTENT */

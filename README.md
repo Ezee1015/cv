@@ -1,6 +1,7 @@
 # CV
 
-> Developed **without** AI
+> [!INFO]
+> This CV it is **not** AI generated
 
 ## Image Credits
 - Under construction icon: <https://commons.wikimedia.org/wiki/File:UnderCon_icon.svg>

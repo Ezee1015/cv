@@ -1,6 +1,6 @@
 # CV
 
-> [!INFO]
+> [!NOTE]
 > This CV it is **not** AI generated
 
 ## Image Credits

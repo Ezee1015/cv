@@ -65,13 +65,15 @@ hr {
   width: 80%;
   display: block;
   margin: auto;
+
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 #logo {
   border-radius: 50%;
   width: 60%;
   margin-left: 20%;
-  margin-top: 50px;
   margin-bottom: 50px;
   border: var(--bg) solid 10px;
 }
@@ -191,4 +193,24 @@ h1 {
 
 .knowledge_content {
   padding-top: 25px;
+}
+
+/* MOBILE VERSION */
+/* Source:  */
+/*   - https://stackoverflow.com/a/42025819 */
+/*   - https://stackoverflow.com/a/21652841 */
+@media only screen and ( (max-device-width: 640px) or (max-width: 1100px) ) {
+  body {
+    display: block;
+  }
+
+  #side_panel {
+    position: unset;
+    width: 100%;
+    height: fit-content;
+  }
+
+  #content {
+    width: unset;
+  }
 }

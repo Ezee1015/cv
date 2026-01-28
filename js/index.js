@@ -146,16 +146,20 @@ function loadSocial(json) {
   }
 }
 
-var lastRotationOfLogo
+// Logo Easter Egg
+const rotationDuration = 5000
+var onLogoEvent = false
+var logoClickCount = 0;
+
 function rotateLogoToMouse(event) {
   const cursorPos = {
-    "x": event.clientX,
-    "y": event.clientY,
+    x: event.clientX,
+    y: event.clientY,
   }
 
   const logoPos = {
-    "x": logo.offsetLeft + logo.width / 2,
-    "y": logo.offsetTop + logo.height / 2,
+    x: logo.offsetLeft + logo.width / 2,
+    y: logo.offsetTop + logo.height / 2,
   }
 
   const adj = cursorPos.x - logoPos.x
@@ -166,42 +170,50 @@ function rotateLogoToMouse(event) {
   logo.style.transform = "rotate(" + rotation + "rad)"
 }
 
-var logoClickCount = 0;
-function loadProfilePicture(json) {
-  if (json.personal.image == undefined) return
-  const logo = document.getElementById("logo")
-  logo.src = json.personal.image
+var logoEvents = [
+  {
+    count: 0,
+    action: () => { }
+  },
 
-  logo.onclick = (event) => {
-    logoClickCount++
-
-    if (logoClickCount < 5) {
-    } else if (logoClickCount < 10) {
+  {
+    count: 5,
+    action: () => {
       logo.style.borderColor = "var(--yellow)"
 
       // Resources:
       // - https://github.com/tsoding/button/blob/fef36d7ccd9b75585f3c2f766839d14ef1423074/index.js#L80C21-L80C28.
       // - https://developer.mozilla.org/en-US/docs/Web/API/Element/animate
-      logo.animate([
-        { transform: "rotate(0deg)" },
-        { transform: "rotate(-10deg)" },
-        { transform: "rotate(10deg)" },
-        { transform: "rotate(0deg)" },
-        { transform: "rotate(5deg)" },
-        { transform: "rotate(-5deg)" },
-        { transform: "rotate(0deg)" },
-        { transform: "rotate(-5deg)" },
-        { transform: "rotate(5deg)" },
-        { transform: "rotate(-5deg)" },
-        { transform: "rotate(0deg)" },
-      ], {
-        duration: 500,
-      })
-    } else if (logoClickCount == 10){
+      logo.animate(
+        [
+          { transform: "rotate(0deg)" },
+          { transform: "rotate(-10deg)" },
+          { transform: "rotate(10deg)" },
+          { transform: "rotate(0deg)" },
+          { transform: "rotate(5deg)" },
+          { transform: "rotate(-5deg)" },
+          { transform: "rotate(0deg)" },
+          { transform: "rotate(-5deg)" },
+          { transform: "rotate(5deg)" },
+          { transform: "rotate(-5deg)" },
+          { transform: "rotate(0deg)" },
+        ], {
+          duration: 500,
+        }
+      )
+    }
+  },
+
+  {
+    count: 10,
+    action: () => {
+      onLogoEvent = true
+
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); // Source: https://stackoverflow.com/a/29509267
       logo.style.borderColor = "var(--red)"
 
       if (isMobile) {
+        const animDuration = 500
         logo.animate([
           { transform: "translate(1px, 1px)  " },
           { transform: "translate(-1px, -2px)" },
@@ -215,12 +227,55 @@ function loadProfilePicture(json) {
           { transform: "translate(1px, 2px)  " },
           { transform: "translate(1px, -2px) " },
         ], {
-          duration: 500,
-          iterations: Infinity,
+          duration: animDuration,
+          iterations: rotationDuration / animDuration,
         })
       } else {
         rotateLogoToMouse(event)
         document.onmousemove = rotateLogoToMouse
+      }
+
+      setTimeout(() => {
+        document.onmousemove = null
+
+        logo.style.transition = "transform 0.5s, border-color 0.5s"
+        logo.style.transform = ""
+        logo.style.borderColor = ""
+
+        logo.offsetLeft; // Hack to refresh. Source: https://stackoverflow.com/a/21665117
+
+        logo.style.transition = ""
+
+        onLogoEvent = false
+        logoClickCount = 0 // RESET CLICK COUNT
+      }, rotationDuration)
+    }
+  },
+]
+logoEvents.reverse()
+
+function loadProfilePicture(json) {
+  if (json.personal.image == undefined) return
+  const logo = document.getElementById("logo")
+  logo.src = json.personal.image
+
+  logo.onclick = (event) => {
+    if (onLogoEvent) return
+
+    logo.animate([
+      { transform: "scale(1)  " },
+      { transform: "scale(0.9)" },
+      { transform: "scale(1) " },
+    ], {
+      duration: 50,
+    })
+
+    logoClickCount++
+
+    for (const e of logoEvents) {
+      if (logoClickCount >= e.count) {
+        e.action()
+        break;
       }
     }
   }

@@ -66,7 +66,7 @@ function loadEducation(json) {
   for (const ed of json.education) {
     const title = document.createElement("p")
     title.classList.add("knowledge_title")
-    title.style.fontWeight = "bold";
+    title.style.fontWeight = "bold"
     title.innerHTML = `${ed.degree} | ${ed.name}`
 
     const time = document.createElement("p")
@@ -87,7 +87,7 @@ function loadEducation(json) {
 function loadExperience(json) {
   for (const ex of json.experience) {
     const title = document.createElement("p")
-    title.style.fontWeight = "bold";
+    title.style.fontWeight = "bold"
     title.classList.add("knowledge_title")
     title.innerHTML = ex.name
 
@@ -152,7 +152,7 @@ function loadSocial(json) {
 // Logo Easter Egg
 const rotationDuration = 5000
 var onLogoEvent = false
-var logoClickCount = 0;
+var logoClickCount = 0
 
 function rotateLogoToMouse(event) {
   const cursorPos = {
@@ -212,7 +212,7 @@ var logoEvents = [
     action: () => {
       onLogoEvent = true
 
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); // Source: https://stackoverflow.com/a/29509267
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) // Source: https://stackoverflow.com/a/29509267
       logo.style.borderColor = "var(--red)"
 
       if (isMobile) {
@@ -245,7 +245,7 @@ var logoEvents = [
         logo.style.transform = ""
         logo.style.borderColor = ""
 
-        logo.offsetLeft; // Hack to refresh. Source: https://stackoverflow.com/a/21665117
+        logo.offsetLeft // Hack to refresh. Source: https://stackoverflow.com/a/21665117
 
         logo.style.transition = ""
 
@@ -278,7 +278,7 @@ function loadProfilePicture(json) {
     for (const e of logoEvents) {
       if (logoClickCount >= e.count) {
         e.action()
-        break;
+        break
       }
     }
   }
@@ -314,6 +314,6 @@ fetch(data_url)
   })
   .catch(function (error) {
     addMessage("error", iconError, "Fetch error", "An error occurred with the Fetch petition: " + error.message)
-  });
+  })
 
 addMessage("warning", iconUnderConstruction, "Under Construction", "This web page is under construction...")

@@ -65,6 +65,7 @@ function createKnowledgeItem(containerID, icon, body) {
 function loadEducation(json) {
   for (const ed of json.education) {
     const title = document.createElement("p")
+    title.classList.add("knowledge_title")
     title.style.fontWeight = "bold";
     title.innerHTML = `${ed.degree} | ${ed.name}`
 
@@ -87,6 +88,7 @@ function loadExperience(json) {
   for (const ex of json.experience) {
     const title = document.createElement("p")
     title.style.fontWeight = "bold";
+    title.classList.add("knowledge_title")
     title.innerHTML = ex.name
 
     const time = document.createElement("p")
@@ -107,6 +109,7 @@ function loadExperience(json) {
 function loadCourses(json) {
   for (const c of json.courses) {
     const title = document.createElement("p")
+    title.classList.add("knowledge_title")
     title.innerHTML = `<b>${c.name}</b> from <b>${c.issuer}</b>`
 
     const time = document.createElement("p")

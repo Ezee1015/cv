@@ -122,6 +122,8 @@ h1 {
   margin-top: 25px;
   margin-bottom: 25px;
   margin-left: 5px;
+  background: var(--bg-dark);
+  border-radius: 25px;
 }
 
 .box_icon {

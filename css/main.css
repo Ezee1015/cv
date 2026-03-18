@@ -76,6 +76,9 @@ hr {
   margin-left: 20%;
   margin-bottom: 50px;
   border: var(--bg) solid 10px;
+
+  /* Source: <https://stackoverflow.com/a/77205361> */
+  box-sizing: border-box;
 }
 
 h1 {

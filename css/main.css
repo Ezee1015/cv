@@ -79,7 +79,6 @@ hr {
 }
 
 h1 {
-  text-decoration: underline;
   text-align: center;
 }
 
@@ -117,12 +116,14 @@ h1 {
   padding-right: 5%;
 }
 
+.information_container h2 {
+  border-bottom: 2px solid var(--fg-dark);
+}
+
 .box {
   display: flex;
-  border-radius: 25px;
   margin-top: 25px;
   margin-bottom: 25px;
-  margin-left: 5px;
   background: var(--bg-dark);
   border-radius: 25px;
 }

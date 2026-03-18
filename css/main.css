@@ -83,11 +83,19 @@ hr {
 
 h1 {
   text-align: center;
+  margin-bottom: 50px;
 }
 
-#name {
+#name_title {
   font-size: 24px;
   text-align: center;
+  margin-bottom: 0px;
+}
+
+#headline {
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
 }
 
 .social_item {

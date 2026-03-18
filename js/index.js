@@ -36,8 +36,8 @@ function addMessage(type, iconPath, titleStr, messageStr) {
   container.appendChild(image)
   container.appendChild(message_container)
 
-  const firstElement = document.getElementById("content").firstChild
-  document.getElementById("content").insertBefore(container, firstElement)
+  const firstElement = content.firstChild
+  content.insertBefore(container, firstElement)
 
   close.onclick = () => {
     container.style.display = "none"
@@ -145,7 +145,7 @@ function loadSocial(json) {
     item.classList.add("social_item")
     item.appendChild(link)
 
-    document.getElementById("social").appendChild(item)
+    social.appendChild(item)
   }
 }
 
@@ -257,9 +257,14 @@ var logoEvents = [
 ]
 logoEvents.reverse()
 
-function loadProfilePicture(json) {
+function loadProfile(json) {
   if (json.personal.image == undefined) return
-  const logo = document.getElementById("logo")
+  if (json.personal.name == undefined) return
+  if (json.personal.headline == undefined) return
+
+  document.title = json.personal.name
+  name_title.innerText = json.personal.name
+  headline.innerText = json.personal.headline
   logo.src = json.personal.image
 
   logo.onclick = (event) => {
@@ -284,15 +289,8 @@ function loadProfilePicture(json) {
   }
 }
 
-function loadName(json) {
-  if (json.personal.name == undefined) return
-  document.getElementById("name").innerText = json.personal.name
-  document.title = json.personal.name
-}
-
 function parse_json(json) {
-  loadProfilePicture(json)
-  loadName(json)
+  loadProfile(json)
   loadEducation(json)
   loadExperience(json)
   loadCourses(json)
